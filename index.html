@@ -1,231 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyGharPlanAI | Smart House Plans Starting at ₹299</title>
-
-    <meta name="description"
-        content="Get AI Assisted House Plans starting at just ₹299. Professional 2D & 3D Home Plans designed with 30+ years of engineering experience.">
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlanAghar | Smart House Plans</title>
+  <style>
+    :root { --green:#15803d; --dark:#102a1c; --pale:#eef8f1; --line:#dcebe1; --blue:#e9f4ff; }
+    * { box-sizing: border-box; }
+    html, body { width:100%; height:100%; overflow:hidden; }
+    body { display:flex; justify-content:center; margin:0; background:#f7faf8; color:#1b2c20; font:16px/1.45 Arial, Helvetica, sans-serif; }
+    .page { width:min(100%, 1000px); margin:0; background:#fff; box-shadow:0 2px 18px #18352512; transform:scale(var(--page-scale, 1)); transform-origin:top center; }
+    header { display:flex; align-items:center; gap:22px; padding:14px 24px; border-bottom:1px solid var(--line); background:#fff; }
+    .brand { display:flex; align-items:center; gap:8px; margin-right:auto; color:#126135; font-size:23px; font-weight:800; letter-spacing:-1px; white-space:nowrap; }
+    .brand small { display:block; color:#647268; font-size:10px; font-weight:600; letter-spacing:0; }
+    .brand-icon { font-size:29px; line-height:1; }
+    nav { display:flex; align-items:center; gap:18px; }
+    nav a { color:#1c3022; font-size:13px; font-weight:700; text-decoration:none; white-space:nowrap; }
+    nav a:first-child, nav a:hover, nav a:focus { color:var(--green); }
+    .whatsapp, .button { display:inline-block; border-radius:5px; background:var(--green); color:#fff; font-weight:700; text-decoration:none; }
+    .whatsapp { padding:10px 14px; font-size:13px; white-space:nowrap; }
+    .hero { min-height:320px; display:grid; grid-template-columns:1.1fr .9fr; gap:24px; padding:42px 48px; background:linear-gradient(115deg,#eef9f2 0%,#f8fcf9 52%,#e0edf8 100%); }
+    .eyebrow { display:inline-block; margin-bottom:10px; padding:4px 8px; border:1px solid #96c9a5; border-radius:4px; color:#126135; background:#f4fff7; font-size:12px; font-weight:800; letter-spacing:.4px; }
+    h1 { margin:0 0 8px; color:#11231a; font-size:38px; line-height:1.08; letter-spacing:-1.5px; }
+    .hero h2 { margin:0 0 12px; color:#1d5831; font-size:20px; }
+    .hero p { max-width:520px; margin:0 0 18px; font-size:15px; }
+    .benefits { display:grid; grid-template-columns:1fr 1fr; gap:7px 18px; margin:0 0 20px; padding:0; list-style:none; font-size:14px; font-weight:700; }
+    .benefits li::before { content:'✓'; margin-right:7px; color:var(--green); }
+    .button { padding:12px 17px; font-size:14px; }
+    .button.secondary { margin-left:8px; border:1px solid #72ad84; background:#fff; color:#176c39; }
+    .house { align-self:center; min-height:210px; border-radius:12px; background:#dce8e2 url('https://images.unsplash.com/photo-1748063578185-3d68121b11ff?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=85&w=1400') center/cover no-repeat; box-shadow:0 11px 22px #25523833; }
+    .plans { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:28px 48px 18px; }
+    .card { padding:22px; border:1px solid var(--line); border-radius:10px; background:#fff; box-shadow:0 3px 9px #1f4a2b0c; }
+    .card h3 { margin:0 0 4px; font-size:19px; color:#133e25; }
+    .price { margin:0 0 12px; color:#16733a; font-size:29px; font-weight:800; }
+    .card ul { margin:0 0 18px; padding-left:20px; font-size:14px; }
+    .card li { margin:5px 0; }
+    .card .button { padding:9px 14px; }
+    .why { padding:12px 48px 30px; background:#fbfefc; }
+    h2.section-title { margin:0 0 17px; color:#153522; font-size:23px; text-align:center; }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .why-item { padding:14px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .why-item b { display:block; margin-bottom:4px; color:#166938; font-size:15px; }
+    .why-item span { display:block; font-size:13px; }
+    .steps { padding:28px 48px 38px; }
+    .steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .step { position:relative; padding:16px; border:1px solid var(--line); border-radius:9px; background:var(--blue); }
+    .step strong { display:block; margin-bottom:6px; color:#146637; font-size:15px; }
+    .step span { font-size:13px; }
+    .step-number { display:grid; place-items:center; width:28px; height:28px; margin-bottom:9px; border-radius:50%; background:var(--green); color:#fff; font-weight:800; }
+    .heading-link { color:inherit; text-decoration:none; }
+    .heading-link:hover, .heading-link:focus { color:var(--green); text-decoration:underline; }
+    @media (max-width:900px) { header { flex-wrap:wrap; gap:12px; } nav { order:3; width:100%; justify-content:space-between; gap:8px; } .hero { padding:34px 28px; } .plans,.why,.steps { padding-left:28px; padding-right:28px; } }
+    @media (max-width:620px) { body { font-size:15px; } header { padding:13px 16px; } .brand { font-size:21px; } nav { overflow-x:auto; justify-content:flex-start; padding-bottom:3px; } nav a { font-size:12px; } .hero { grid-template-columns:1fr; padding:30px 22px; } h1 { font-size:32px; } .house { min-height:185px; } .plans,.why,.steps { padding-left:22px; padding-right:22px; } .plans,.why-grid { grid-template-columns:1fr; } .steps-grid { grid-template-columns:1fr 1fr; } }
+  </style>
 </head>
-
 <body>
-
-<!--================ HEADER ================-->
-
-<header class="top-header">
-
-    <div class="container">
-
-        <div class="logo">
-
-            <h2>Easy<span>GharPlan</span>AI</h2>
-
-        </div>
-
-        <nav>
-
-            <ul>
-
-                <li><a href="#">Home</a></li>
-
-                <li><a href="#">About Us</a></li>
-
-                <li><a href="#">Our Plans</a></li>
-
-                <li><a href="#">How It Works</a></li>
-
-                <li><a href="#">Sample Plans</a></li>
-
-                <li><a href="#">FAQ</a></li>
-
-                <li><a href="#">Contact</a></li>
-
-            </ul>
-
-        </nav>
-
-        <div class="header-btn">
-
-            <a href="#" class="btn-primary">
-                Get Started
-            </a>
-
-        </div>
-
-    </div>
-
-</header>
-
-<!--================ HERO ================-->
-
-<section class="hero">
-
-<div class="container hero-grid">
-
-<div class="hero-left">
-
-<h5>AI Powered Home Planning</h5>
-
-<h1>
-
-Your Dream Home Starts Here
-
-</h1>
-
-<p>
-
-Professional AI Assisted House Plans designed using over
-30 years of engineering experience.
-
-Affordable, Fast and Smart.
-
-</p>
-
-<div class="price-box">
-
-<div class="price-card">
-
-<h2>₹299</h2>
-
-<p>2D Floor Plan</p>
-
-<a href="#" class="plan-btn">
-Choose Plan
-</a>
-
-</div>
-
-<div class="price-card">
-
-<h2>₹499</h2>
-
-<p>2D + 3D House Plan</p>
-
-<a href="#" class="plan-btn">
-Choose Plan
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-buttons">
-
-<a href="#" class="btn-primary">
-
-View Sample Plans
-
-</a>
-
-<a href="#" class="btn-secondary">
-
-How It Works
-
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-right">
-
-<img src="images/hero-house.png"
-alt="Modern House">
-
-</div>
-
-</div>
-
-</section>
-
-<!--================ FEATURES ================-->
-
-<section class="features">
-
-<div class="container">
-
-<h2>
-
-Why Choose EasyGharPlanAI?
-
-</h2>
-
-<div class="feature-grid">
-
-<div class="feature-card">
-
-<i class="fa-solid fa-brain"></i>
-
-<h3>AI Assisted Planning</h3>
-
-<p>
-
-Smart layouts created using AI and engineering expertise.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-indian-rupee-sign"></i>
-
-<h3>Affordable</h3>
-
-<p>
-
-Professional house plans starting from just ₹299.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-clock"></i>
-
-<h3>Fast Delivery</h3>
-
-<p>
-
-Receive your customized plan quickly.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<i class="fa-solid fa-user-gear"></i>
-
-<h3>30+ Years Experience</h3>
-
-<p>
-
-Designed by experienced civil engineering professionals.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<script src="js/script.js"></script>
-
+  <main class="page">
+    <header>
+      <div class="brand"><span class="brand-icon">&#8962;</span><span>PlanAghar<small>Smart Plans. Better Homes.</small></span></div>
+      <nav aria-label="Main navigation">
+        <a href="home-navigation.html" target="_blank" rel="noopener">Home</a><a href="pdfs/about-us.pdf" target="_blank" rel="noopener">About Us</a><a href="pdfs/our-plans.pdf" target="_blank" rel="noopener">Our Plans</a><a href="pdfs/how-it-works.pdf" target="_blank" rel="noopener">How It Works</a><a href="pdfs/sample-plans.pdf" target="_blank" rel="noopener">Sample Plans</a><a href="pdfs/faq.pdf" target="_blank" rel="noopener">FAQ</a><a href="pdfs/contact-us.pdf" target="_blank" rel="noopener">Contact Us</a>
+      </nav>
+      <a class="whatsapp" href="https://wa.me/917759090361?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20house%20plans." target="_blank" rel="noopener">WhatsApp Us</a>
+    </header>
+    <section class="hero">
+      <div><span class="eyebrow">AI-POWERED HOME PLANNING</span><h1><a class="heading-link" href="our-plans.html" target="_blank" rel="noopener">Why Pay Thousands?</a></h1><h2><a class="heading-link" href="our-plans.html" target="_blank" rel="noopener">Get Your House Plan Starting at Just ₹299!</a></h2><p>PlanAghar provides beautiful, practical house plans designed around your needs, plot size, and budget.</p><ul class="benefits"><li>Smart layouts</li><li>Fast delivery</li><li>Better space planning</li><li>Affordable pricing</li></ul><a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20want%20a%20house%20plan." target="_blank" rel="noopener">Get Started on WhatsApp</a><a class="button secondary" href="sample-plans.html" target="_blank" rel="noopener">View Sample Plans</a></div>
+      <div class="house" role="img" aria-label="Modern house design"></div>
+    </section>
+    <section class="plans"><article class="card"><h3><a class="heading-link" href="2d-house-plan.html" target="_blank" rel="noopener">2D House Plan</a></h3><p class="price">₹299 only</p><ul><li>Floor layout</li><li>Room dimensions</li><li>Space optimisation</li><li>PDF delivery</li></ul><a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20want%20a%202D%20house%20plan." target="_blank" rel="noopener">Get 2D Plan</a></article><article class="card"><h3><a class="heading-link" href="2d-3d-house-plan.html" target="_blank" rel="noopener">2D + 3D House Plan</a></h3><p class="price">₹499 only</p><ul><li>Everything in 2D plan</li><li>Front elevation view</li><li>Interior visualisation</li><li>PDF delivery</li></ul><a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20want%20a%202D%20and%203D%20house%20plan." target="_blank" rel="noopener">Get 2D + 3D Plan</a></article></section>
+    <section class="why"><h2 class="section-title"><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">Why Choose PlanAghar?</a></h2><div class="why-grid"><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">AI-Powered Planning</a></b><span>Smarter layouts tailored to your requirements.</span></div><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">Expert Engineering Review</a></b><span>Plans reviewed for practical use.</span></div><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">Quick Turnaround</a></b><span>Get your plan without a long wait.</span></div><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">Affordable Pricing</a></b><span>Quality plans at a sensible price.</span></div><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">100% Custom Plans</a></b><span>Built around your plot and preferences.</span></div><div class="why-item"><b><a class="heading-link" href="about-us.html" target="_blank" rel="noopener">Secure & Reliable</a></b><span>Your details are handled safely.</span></div></div></section>
+    <section class="steps"><h2 class="section-title"><a class="heading-link" href="how-it-works.html" target="_blank" rel="noopener">How It Works — 4 Simple Steps</a></h2><div class="steps-grid"><div class="step"><div class="step-number">1</div><strong><a class="heading-link" href="how-it-works.html" target="_blank" rel="noopener">Share Your Details</a></strong><span>Tell us your plot size, rooms, and preferences.</span></div><div class="step"><div class="step-number">2</div><strong><a class="heading-link" href="how-it-works.html" target="_blank" rel="noopener">AI Creates Your Plan</a></strong><span>We prepare a thoughtful plan for your needs.</span></div><div class="step"><div class="step-number">3</div><strong><a class="heading-link" href="how-it-works.html" target="_blank" rel="noopener">Expert Review</a></strong><span>Our team checks the plan for practical use.</span></div><div class="step"><div class="step-number">4</div><strong><a class="heading-link" href="how-it-works.html" target="_blank" rel="noopener">Receive Your Plan</a></strong><span>Your final plan is delivered digitally.</span></div></div></section>
+  </main>
+  <script>
+    function fitPage() {
+      const page = document.querySelector('.page');
+      page.style.setProperty('--page-scale', '1');
+      const scale = Math.min(1, window.innerHeight / page.scrollHeight, window.innerWidth / page.scrollWidth);
+      page.style.setProperty('--page-scale', scale.toFixed(3));
+    }
+    window.addEventListener('load', fitPage);
+    window.addEventListener('resize', fitPage);
+  </script>
 </body>
-
 </html>
