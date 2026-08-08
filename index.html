@@ -144,7 +144,15 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
   .req-options{grid-template-columns:1fr}
 }
 </style>
-</head>
+<style>
+/* Slow one-by-one opening assembly */
+body.page-opening .page > * { opacity:0; transform:translateY(42px); filter:blur(2px); }
+body.page-opening .page > *:nth-child(even) { transform:translateX(70px); }
+body.page-opening .page > *:nth-child(odd) { transform:translateY(42px); }
+body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,.8,.2,1) forwards; animation-delay:var(--open-delay,0s); }
+@keyframes contentAssemble { from{opacity:0;transform:translateY(42px);filter:blur(2px)} to{opacity:1;transform:translate(0);filter:blur(0)} }
+@media (prefers-reduced-motion: reduce){ body.page-opening .page > *{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;} }
+</style></head>
 <body>
 <main class="page">
     <header>
@@ -427,5 +435,15 @@ document.addEventListener('keydown',function(event){
 });
 </script>
 
+
+<script>
+(function(){
+  document.body.classList.add('page-opening');
+  const items=[...document.querySelectorAll('body.page-opening .page > *')];
+  items.forEach((el,i)=>el.style.setProperty('--open-delay',(i*1.05)+'s'));
+  const total=(items.length*1.05+1.6)*1000;
+  setTimeout(()=>document.body.classList.remove('page-opening'), total);
+})();
+</script>
 </body>
 </html>
