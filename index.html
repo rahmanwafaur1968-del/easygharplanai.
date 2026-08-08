@@ -115,6 +115,35 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
 }
 </style>
 
+<style id="whatsapp-requirement-form">
+/* WhatsApp requirement popup */
+.whatsapp-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(18,59,86,.58);align-items:center;justify-content:center;padding:18px}
+.whatsapp-modal.show{display:flex}
+.whatsapp-dialog{position:relative;width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 22px 60px rgba(18,59,86,.30);padding:26px;border:1px solid #cfe8f7}
+.whatsapp-dialog h2{margin:0 42px 6px 0;color:#124e78;font-size:24px}
+.whatsapp-dialog .modal-subtitle{margin:0 0 18px;color:#5f7d95;font-size:14px}
+.whatsapp-close{position:absolute;right:16px;top:12px;border:0;background:#eaf6ff;color:#245a78;width:36px;height:36px;border-radius:50%;font-size:24px;cursor:pointer;line-height:1}
+.whatsapp-close:hover{background:#d7effb}
+.req-section{margin:16px 0}
+.req-section>label.title{display:block;font-weight:700;color:#29465a;margin-bottom:9px;font-size:14px}
+.req-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.req-option{display:flex;align-items:center;gap:9px;border:1px solid #cfe4ef;border-radius:10px;padding:10px 12px;background:#f7fcff;color:#36586c;cursor:pointer;font-size:13px}
+.req-option:hover{border-color:#73b8d8;background:#eef9ff}
+.req-option input{accent-color:#3d91bd;margin:0}
+.req-input{width:100%;padding:11px 12px;border:1px solid #cfe4ef;border-radius:10px;outline:none;font-size:14px;color:#29465a;background:#fff}
+.req-input:focus{border-color:#3d91bd;box-shadow:0 0 0 3px rgba(61,145,189,.12)}
+.req-actions{display:flex;gap:10px;margin-top:20px}
+.req-send,.req-cancel{flex:1;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer;font-size:14px}
+.req-send{background:#3d91bd;color:#fff}
+.req-send:hover{background:#2e7ea9}
+.req-cancel{background:#eaf6ff;color:#245a78}
+.req-error{display:none;margin-top:10px;color:#b42318;font-size:13px}
+@media(max-width:520px){
+  .whatsapp-dialog{padding:20px;border-radius:14px}
+  .whatsapp-dialog h2{font-size:20px}
+  .req-options{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 <main class="page">
@@ -137,7 +166,7 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
         <a href="pdfs/contact-us.pdf" target="_blank" rel="noopener">Contact Us</a>
       </nav>
 
-      <a class="whatsapp" href="https://wa.me/917759090361?text=Hello%2C%20I%20would%20like%20to%20know%20more%20information%20to%20understand%20requirements." target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="whatsapp" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">WhatsApp Us</a>
     </header>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
@@ -154,7 +183,7 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
           <li>Affordable pricing</li>
         </ul>
 
-        <a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20would%20like%20to%20know%20more%20information%20to%20understand%20requirements."  target="_blank" rel="noopener">Get Started on WhatsApp</a>
+        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)"  target="_blank" rel="noopener">Get Started on WhatsApp</a>
         <a class="button secondary" href="sample-plans.html" target="_blank" rel="noopener">View Sample Plans</a>
       </div>
 
@@ -170,7 +199,7 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
           <li>Space optimisation</li>
           <li>PDF delivery</li>
         </ul>
-        <a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20want%20a%202D%20house%20plan." target="_blank" rel="noopener">Get 2D Plan</a>
+        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">Get 2D Plan</a>
       </article>
 
       <article class="card">
@@ -182,7 +211,7 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
           <li>Interior visualisation</li>
           <li>PDF delivery</li>
         </ul>
-        <a class="button" href="https://wa.me/917759090361?text=Hello%2C%20I%20want%20a%202D%20and%203D%20house%20plan." target="_blank" rel="noopener">Get 2D + 3D Plan</a>
+        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">Get 2D + 3D Plan</a>
       </article>
     </section>
     <section class="why" aria-labelledby="why-title">
@@ -255,6 +284,147 @@ h1{margin:0 0 6px;color:#fff;font-size:clamp(28px,3.3vw,46px);line-height:1.05;l
   }
   setTimeout(fit,50);setTimeout(fit,300);
 }());
+</script>
+
+
+<!-- WhatsApp requirement form -->
+<div id="whatsappRequirementModal" class="whatsapp-modal" role="dialog" aria-modal="true" aria-labelledby="whatsappFormTitle">
+  <div class="whatsapp-dialog">
+    <button type="button" class="whatsapp-close" aria-label="Close" onclick="closeRequirementForm()">&times;</button>
+    <h2 id="whatsappFormTitle">Tell Us Your Requirements</h2>
+    <p class="modal-subtitle">Choose your requirements and we will send the details to WhatsApp.</p>
+    <form id="whatsappRequirementForm" onsubmit="sendRequirementToWhatsApp(event)">
+      <div class="req-section">
+        <label class="title">Property Type</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="propertyType" value="Residential" required> Residential</label>
+          <label class="req-option"><input type="radio" name="propertyType" value="Commercial"> Commercial</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">House / BHK Requirement</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="bhk" value="1 BHK"> 1 BHK</label>
+          <label class="req-option"><input type="radio" name="bhk" value="2 BHK"> 2 BHK</label>
+          <label class="req-option"><input type="radio" name="bhk" value="3 BHK"> 3 BHK</label>
+          <label class="req-option"><input type="radio" name="bhk" value="4 BHK"> 4 BHK</label>
+          <label class="req-option"><input type="radio" name="bhk" value="Villa"> Villa</label>
+          <label class="req-option"><input type="radio" name="bhk" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Plot Size</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="plotSize" value="30 × 40 ft"> 30 × 40 ft</label>
+          <label class="req-option"><input type="radio" name="plotSize" value="30 × 50 ft"> 30 × 50 ft</label>
+          <label class="req-option"><input type="radio" name="plotSize" value="40 × 60 ft"> 40 × 60 ft</label>
+          <label class="req-option"><input type="radio" name="plotSize" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Budget</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="budget" value="Below ₹50 Lakh"> Below ₹50 Lakh</label>
+          <label class="req-option"><input type="radio" name="budget" value="₹50–75 Lakh"> ₹50–75 Lakh</label>
+          <label class="req-option"><input type="radio" name="budget" value="₹75 Lakh–1 Crore"> ₹75 Lakh–1 Crore</label>
+          <label class="req-option"><input type="radio" name="budget" value="₹1 Crore+"> ₹1 Crore+</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Purpose</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="purpose" value="Construction"> Construction</label>
+          <label class="req-option"><input type="radio" name="purpose" value="House Plan"> House Plan</label>
+          <label class="req-option"><input type="radio" name="purpose" value="Consultation"> Consultation</label>
+          <label class="req-option"><input type="radio" name="purpose" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title" for="customerName">Customer Name</label>
+        <input class="req-input" id="customerName" name="customerName" type="text" placeholder="Enter your name" autocomplete="name" required>
+      </div>
+
+      <div class="req-section">
+        <label class="title" for="customerMobile">Mobile Number</label>
+        <input class="req-input" id="customerMobile" name="customerMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel" pattern="[0-9]{10}" required>
+        <div id="reqError" class="req-error">Please enter a valid 10-digit mobile number.</div>
+      </div>
+
+      <div class="req-actions">
+        <button type="button" class="req-cancel" onclick="closeRequirementForm()">Cancel</button>
+        <button type="submit" class="req-send">Continue to WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script id="whatsapp-requirement-script">
+function openRequirementForm(event){
+  if(event) event.preventDefault();
+  const modal=document.getElementById('whatsappRequirementModal');
+  if(!modal) return;
+  modal.classList.add('show');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>{
+    const first=document.querySelector('#whatsappRequirementForm input[name="propertyType"]');
+    if(first) first.focus();
+  },50);
+}
+function closeRequirementForm(){
+  const modal=document.getElementById('whatsappRequirementModal');
+  if(modal) modal.classList.remove('show');
+  document.body.style.overflow='';
+}
+function getSelected(name){
+  const el=document.querySelector('#whatsappRequirementForm input[name="'+name+'"]:checked');
+  return el ? el.value : 'Not specified';
+}
+function sendRequirementToWhatsApp(event){
+  event.preventDefault();
+  const form=document.getElementById('whatsappRequirementForm');
+  const name=document.getElementById('customerName').value.trim();
+  const mobile=document.getElementById('customerMobile').value.replace(/\D/g,'');
+  const error=document.getElementById('reqError');
+  if(mobile.length!==10){
+    error.style.display='block';
+    document.getElementById('customerMobile').focus();
+    return;
+  }
+  error.style.display='none';
+  const message=[
+    'Hello, I am interested in a house plan.',
+    '',
+    'My Requirements:',
+    'Property Type: '+getSelected('propertyType'),
+    'House / BHK: '+getSelected('bhk'),
+    'Plot Size: '+getSelected('plotSize'),
+    'Budget: '+getSelected('budget'),
+    'Purpose: '+getSelected('purpose'),
+    '',
+    'Customer Name: '+name,
+    'Mobile Number: '+mobile,
+    '',
+    'Please share suitable plans and pricing.'
+  ].join('\n');
+  const url='https://wa.me/917759090361?text='+encodeURIComponent(message);
+  window.open(url,'_blank','noopener');
+  closeRequirementForm();
+  form.reset();
+}
+
+document.addEventListener('click',function(event){
+  const modal=document.getElementById('whatsappRequirementModal');
+  if(modal && event.target===modal) closeRequirementForm();
+});
+document.addEventListener('keydown',function(event){
+  if(event.key==='Escape') closeRequirementForm();
+});
 </script>
 
 </body>
