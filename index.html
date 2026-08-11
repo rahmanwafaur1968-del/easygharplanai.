@@ -394,6 +394,13 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
 }
 </style>
 
+
+<style>
+.site-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.site-row{display:flex;align-items:center;gap:8px;font-size:inherit;color:inherit}
+.site-row .req-input{flex:1;min-width:0}
+@media(max-width:600px){.site-details-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <main class="page">
@@ -575,6 +582,80 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       </div>
 
       <div class="req-section">
+        <label class="title" for="plotWidth">Your Plot Width (in feet)</label>
+        <input class="req-input" id="plotWidth" name="plotWidth" type="number" min="1" step="0.1" placeholder="Enter plot width in feet">
+      </div>
+
+      <div class="req-section">
+        <label class="title" for="plotLength">Your Plot Length (in feet)</label>
+        <input class="req-input" id="plotLength" name="plotLength" type="number" min="1" step="0.1" placeholder="Enter plot length in feet">
+      </div>
+
+      <div class="req-section">
+        <label class="title">Required Number of Floors</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="floors" value="Ground Floor"> Ground Floor</label>
+          <label class="req-option"><input type="radio" name="floors" value="G+1"> G+1</label>
+          <label class="req-option"><input type="radio" name="floors" value="G+2"> G+2</label>
+          <label class="req-option"><input type="radio" name="floors" value="G+3"> G+3</label>
+          <label class="req-option"><input type="radio" name="floors" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Balcony in Bedroom</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="bedroomBalcony" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="bedroomBalcony" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Parking Facility</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="parking" value="Car"> Car</label>
+          <label class="req-option"><input type="radio" name="parking" value="Bike"> Bike</label>
+          <label class="req-option"><input type="radio" name="parking" value="Car + Bike"> Car + Bike</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Garden Provision</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="garden" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="garden" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Lift Provision in the House</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="lift" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="lift" value="No"> No</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Plot Direction</label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="plotDirection" value="North"> North</label>
+          <label class="req-option"><input type="radio" name="plotDirection" value="South"> South</label>
+          <label class="req-option"><input type="radio" name="plotDirection" value="East"> East</label>
+          <label class="req-option"><input type="radio" name="plotDirection" value="West"> West</label>
+        </div>
+      </div>
+
+      <div class="req-section">
+        <label class="title">Site Details</label>
+        <div class="site-details-grid">
+          <label class="site-row"><span>Front — Road</span></label>
+          <label class="site-row"><span>East</span><select class="req-input" name="eastSide"><option value="Road">Road</option><option value="Other Property">Other Property</option></select></label>
+          <label class="site-row"><span>West</span><select class="req-input" name="westSide"><option value="Road">Road</option><option value="Other Property">Other Property</option></select></label>
+          <label class="site-row"><span>South</span><select class="req-input" name="southSide"><option value="Road">Road</option><option value="Other Property">Other Property</option></select></label>
+        </div>
+      </div>
+
+      <div class="req-section">
         <label class="title">Budget</label>
         <div class="req-options">
           <label class="req-option"><input type="radio" name="budget" value="Below ₹50 Lakh"> Below ₹50 Lakh</label>
@@ -595,15 +676,10 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       </div>
 
       <div class="req-section">
-        <label class="title" for="customerName">Customer Name</label>
+        <label class="title" for="customerName">Your Name</label>
         <input class="req-input" id="customerName" name="customerName" type="text" placeholder="Enter your name" autocomplete="name" required>
       </div>
-
-      <div class="req-section">
-        <label class="title" for="customerMobile">Mobile Number</label>
-        <input class="req-input" id="customerMobile" name="customerMobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel" pattern="[0-9]{10}" required>
-        <div id="reqError" class="req-error">Please enter a valid 10-digit mobile number.</div>
-      </div>
+</div>
 
       <div class="req-actions">
         <button type="button" class="req-cancel" onclick="closeRequirementForm()">Cancel</button>
@@ -639,14 +715,6 @@ function sendRequirementToWhatsApp(event){
   event.preventDefault();
   const form=document.getElementById('whatsappRequirementForm');
   const name=document.getElementById('customerName').value.trim();
-  const mobile=document.getElementById('customerMobile').value.replace(/\D/g,'');
-  const error=document.getElementById('reqError');
-  if(mobile.length!==10){
-    error.style.display='block';
-    document.getElementById('customerMobile').focus();
-    return;
-  }
-  error.style.display='none';
   const message=[
     'Hello, I am interested in a house plan.',
     '',
@@ -654,11 +722,23 @@ function sendRequirementToWhatsApp(event){
     'Property Type: '+getSelected('propertyType'),
     'House / BHK: '+getSelected('bhk'),
     'Plot Size: '+getSelected('plotSize'),
+    'Plot Width: '+(document.getElementById('plotWidth').value.trim() || 'Not specified')+' ft',
+    'Plot Length: '+(document.getElementById('plotLength').value.trim() || 'Not specified')+' ft',
+    'Required Number of Floors: '+getSelected('floors'),
+    'Balcony in Bedroom: '+getSelected('bedroomBalcony'),
+    'Parking Facility: '+getSelected('parking'),
+    'Garden Provision: '+getSelected('garden'),
+    'Lift Provision: '+getSelected('lift'),
+    'Plot Direction: '+getSelected('plotDirection'),
+    'Site Details:',
+    '  Front: Road',
+    '  East: '+document.querySelector('[name="eastSide"]').value,
+    '  West: '+document.querySelector('[name="westSide"]').value,
+    '  South: '+document.querySelector('[name="southSide"]').value,
     'Budget: '+getSelected('budget'),
     'Purpose: '+getSelected('purpose'),
     '',
     'Customer Name: '+name,
-    'Mobile Number: '+mobile,
     '',
     'Please share suitable plans and pricing.'
   ].join('\n');
