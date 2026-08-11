@@ -218,6 +218,8 @@ img, svg, canvas, video{
 .req-actions{display:flex;gap:10px;margin-top:20px}
 .req-send,.req-cancel{flex:1;border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer;font-size:14px}
 .req-send{background:#3d91bd;color:#fff}
+.req-send[disabled]{display:none}
+.req-send.visible{display:block}
 .req-send:hover{background:#2e7ea9}
 .req-cancel{background:#eaf6ff;color:#245a78}
 .req-error{display:none;margin-top:10px;color:#b42318;font-size:13px}
@@ -423,7 +425,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
         <a href="contact-us.html" target="_blank" rel="noopener">Contact Us</a>
       </nav>
 
-      <a class="whatsapp" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="whatsapp" href="#whatsapp-form" onclick="openRequirementForm(event)">WhatsApp Us</a>
     </header>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
@@ -456,7 +458,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
           <li>Space optimisation</li>
           <li>PDF delivery</li>
         </ul>
-        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">Get 2D Plan</a>
+        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)">Get 2D Plan</a>
       </article>
 
       <article class="card">
@@ -468,7 +470,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
           <li>Interior visualisation</li>
           <li>PDF delivery</li>
         </ul>
-        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)" target="_blank" rel="noopener">Get 2D + 3D Plan</a>
+        <a class="button" href="#whatsapp-form" onclick="openRequirementForm(event)">Get 2D + 3D Plan</a>
       </article>
     </section>
     <section class="why" aria-labelledby="why-title">
@@ -552,6 +554,13 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
     <p class="modal-subtitle">Choose your requirements and we will send the details to WhatsApp.</p>
     <form id="whatsappRequirementForm" onsubmit="sendRequirementToWhatsApp(event)">
       <div class="req-section">
+        <label class="title">Select House Plan <span aria-hidden="true">*</span></label>
+        <div class="req-options">
+          <label class="req-option"><input type="radio" name="planType" value="2D House Plan (₹299 only)" required> 2D House Plan (₹299 only)</label>
+          <label class="req-option"><input type="radio" name="planType" value="2D + 3D House Plan (₹699 only)"> 2D + 3D House Plan (₹699 only)</label>
+        </div>
+      </div>
+      <div class="req-section">
         <label class="title">Property Type</label>
         <div class="req-options">
           <label class="req-option"><input type="radio" name="propertyType" value="Residential" required> Residential</label>
@@ -562,7 +571,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">House / BHK Requirement</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="bhk" value="1 BHK"> 1 BHK</label>
+          <label class="req-option"><input type="radio" name="bhk" value="1 BHK" required> 1 BHK</label>
           <label class="req-option"><input type="radio" name="bhk" value="2 BHK"> 2 BHK</label>
           <label class="req-option"><input type="radio" name="bhk" value="3 BHK"> 3 BHK</label>
           <label class="req-option"><input type="radio" name="bhk" value="4 BHK"> 4 BHK</label>
@@ -574,7 +583,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Plot Size</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="plotSize" value="30 × 40 ft"> 30 × 40 ft</label>
+          <label class="req-option"><input type="radio" name="plotSize" value="30 × 40 ft" required> 30 × 40 ft</label>
           <label class="req-option"><input type="radio" name="plotSize" value="30 × 50 ft"> 30 × 50 ft</label>
           <label class="req-option"><input type="radio" name="plotSize" value="40 × 60 ft"> 40 × 60 ft</label>
           <label class="req-option"><input type="radio" name="plotSize" value="Other"> Other</label>
@@ -583,18 +592,18 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
 
       <div class="req-section">
         <label class="title" for="plotWidth">Your Plot Width (in feet)</label>
-        <input class="req-input" id="plotWidth" name="plotWidth" type="number" min="1" step="0.1" placeholder="Enter plot width in feet">
+        <input class="req-input" id="plotWidth" name="plotWidth" type="number" min="1" step="0.1" required placeholder="Enter plot width in feet">
       </div>
 
       <div class="req-section">
         <label class="title" for="plotLength">Your Plot Length (in feet)</label>
-        <input class="req-input" id="plotLength" name="plotLength" type="number" min="1" step="0.1" placeholder="Enter plot length in feet">
+        <input class="req-input" id="plotLength" name="plotLength" type="number" min="1" step="0.1" required placeholder="Enter plot length in feet">
       </div>
 
       <div class="req-section">
         <label class="title">Required Number of Floors</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="floors" value="Ground Floor"> Ground Floor</label>
+          <label class="req-option"><input type="radio" name="floors" value="Ground Floor" required> Ground Floor</label>
           <label class="req-option"><input type="radio" name="floors" value="G+1"> G+1</label>
           <label class="req-option"><input type="radio" name="floors" value="G+2"> G+2</label>
           <label class="req-option"><input type="radio" name="floors" value="G+3"> G+3</label>
@@ -605,7 +614,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Balcony in Bedroom</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="bedroomBalcony" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="bedroomBalcony" value="Yes" required> Yes</label>
           <label class="req-option"><input type="radio" name="bedroomBalcony" value="No"> No</label>
         </div>
       </div>
@@ -613,7 +622,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Parking Facility</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="parking" value="Car"> Car</label>
+          <label class="req-option"><input type="radio" name="parking" value="Car" required> Car</label>
           <label class="req-option"><input type="radio" name="parking" value="Bike"> Bike</label>
           <label class="req-option"><input type="radio" name="parking" value="Car + Bike"> Car + Bike</label>
         </div>
@@ -622,7 +631,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Garden Provision</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="garden" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="garden" value="Yes" required> Yes</label>
           <label class="req-option"><input type="radio" name="garden" value="No"> No</label>
         </div>
       </div>
@@ -630,7 +639,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Lift Provision in the House</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="lift" value="Yes"> Yes</label>
+          <label class="req-option"><input type="radio" name="lift" value="Yes" required> Yes</label>
           <label class="req-option"><input type="radio" name="lift" value="No"> No</label>
         </div>
       </div>
@@ -638,7 +647,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Plot Direction</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="plotDirection" value="North"> North</label>
+          <label class="req-option"><input type="radio" name="plotDirection" value="North" required> North</label>
           <label class="req-option"><input type="radio" name="plotDirection" value="South"> South</label>
           <label class="req-option"><input type="radio" name="plotDirection" value="East"> East</label>
           <label class="req-option"><input type="radio" name="plotDirection" value="West"> West</label>
@@ -658,7 +667,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Budget</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="budget" value="Below ₹50 Lakh"> Below ₹50 Lakh</label>
+          <label class="req-option"><input type="radio" name="budget" value="Below ₹50 Lakh" required> Below ₹50 Lakh</label>
           <label class="req-option"><input type="radio" name="budget" value="₹50–75 Lakh"> ₹50–75 Lakh</label>
           <label class="req-option"><input type="radio" name="budget" value="₹75 Lakh–1 Crore"> ₹75 Lakh–1 Crore</label>
           <label class="req-option"><input type="radio" name="budget" value="₹1 Crore+"> ₹1 Crore+</label>
@@ -668,7 +677,7 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
       <div class="req-section">
         <label class="title">Purpose</label>
         <div class="req-options">
-          <label class="req-option"><input type="radio" name="purpose" value="Construction"> Construction</label>
+          <label class="req-option"><input type="radio" name="purpose" value="Construction" required> Construction</label>
           <label class="req-option"><input type="radio" name="purpose" value="House Plan"> House Plan</label>
           <label class="req-option"><input type="radio" name="purpose" value="Consultation"> Consultation</label>
           <label class="req-option"><input type="radio" name="purpose" value="Other"> Other</label>
@@ -679,11 +688,10 @@ body.page-opening .page > * { animation: contentAssemble 1.35s cubic-bezier(.22,
         <label class="title" for="customerName">Your Name</label>
         <input class="req-input" id="customerName" name="customerName" type="text" placeholder="Enter your name" autocomplete="name" required>
       </div>
-</div>
 
       <div class="req-actions">
         <button type="button" class="req-cancel" onclick="closeRequirementForm()">Cancel</button>
-        <button type="submit" class="req-send">Continue to WhatsApp</button>
+        <button type="submit" class="req-send" id="reqSubmit" disabled>Submit</button>
       </div>
     </form>
   </div>
@@ -697,6 +705,7 @@ function openRequirementForm(event){
   if(!modal) return;
   modal.classList.add('show');
   document.body.style.overflow='hidden';
+  updateSubmitButton();
   setTimeout(()=>{
     const first=document.querySelector('#whatsappRequirementForm input[name="propertyType"]');
     if(first) first.focus();
@@ -711,14 +720,29 @@ function getSelected(name){
   const el=document.querySelector('#whatsappRequirementForm input[name="'+name+'"]:checked');
   return el ? el.value : 'Not specified';
 }
+function updateSubmitButton(){
+  const form=document.getElementById('whatsappRequirementForm');
+  const btn=document.getElementById('reqSubmit');
+  if(!form || !btn) return;
+  const valid=form.checkValidity();
+  btn.disabled=!valid;
+  btn.classList.toggle('visible',valid);
+  btn.setAttribute('aria-hidden',valid ? 'false' : 'true');
+}
 function sendRequirementToWhatsApp(event){
   event.preventDefault();
   const form=document.getElementById('whatsappRequirementForm');
+  if(!form || !form.checkValidity()){
+    if(form) form.reportValidity();
+    updateSubmitButton();
+    return;
+  }
   const name=document.getElementById('customerName').value.trim();
   const message=[
     'Hello, I am interested in a house plan.',
     '',
     'My Requirements:',
+    'Selected Plan: '+getSelected('planType'),
     'Property Type: '+getSelected('propertyType'),
     'House / BHK: '+getSelected('bhk'),
     'Plot Size: '+getSelected('plotSize'),
@@ -748,6 +772,13 @@ function sendRequirementToWhatsApp(event){
   form.reset();
 }
 
+document.addEventListener('DOMContentLoaded',function(){
+  const form=document.getElementById('whatsappRequirementForm');
+  if(!form) return;
+  form.addEventListener('input',updateSubmitButton);
+  form.addEventListener('change',updateSubmitButton);
+  updateSubmitButton();
+});
 document.addEventListener('click',function(event){
   const modal=document.getElementById('whatsappRequirementModal');
   if(modal && event.target===modal) closeRequirementForm();
