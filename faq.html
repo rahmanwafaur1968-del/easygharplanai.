@@ -1,115 +1,411 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Frequently Asked Questions | PlanAghar</title><style>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Frequently Asked Questions about EasyGharPlan AI home planning services.">
+<title>FAQ | EasyGharPlan AI</title>
+<style>
 :root{
-  --navy:#124E78;--blue:#1687C7;--blue2:#2B9BD3;--sky:#EAF6FF;
-  --gold:#F3A847;--gold-dark:#B56A00;--text:#183B56;--muted:#5F7D95;
-  --line:#CFE8F7;--soft:#F7FCFF;
+  --ink:#16324a;
+  --muted:#60778b;
+  --blue:#1266a8;
+  --blue2:#1d8ed1;
+  --sky:#eef8ff;
+  --line:#d9e9f3;
+  --gold:#f4a62a;
+  --gold-soft:#fff3da;
+  --white:#fff;
+  --shadow:0 18px 45px rgba(16,64,95,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);
- background:linear-gradient(135deg,#EAF6FF 0%,#fff 52%,#f5fbff 100%);min-height:100vh}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 0%,#dff3ff 0,transparent 27%),
+    linear-gradient(180deg,#f7fcff 0%,#fff 48%,#f7fbfd 100%);
+}
 a{color:inherit}
-.site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.header-inner{max-width:1240px;margin:auto;min-height:76px;padding:0 28px;
- display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);
- font-size:25px;font-weight:800;letter-spacing:-.8px;margin-right:auto;white-space:nowrap}
-.brand-icon{width:42px;height:42px;border-radius:12px;background:#E1F3FF;color:var(--blue);
- display:grid;place-items:center;font-size:23px;box-shadow:inset 0 0 0 1px #d3edf9}
-.brand small{display:block;font-size:9px;letter-spacing:.6px;color:var(--muted);margin-top:2px}
-.nav{display:flex;align-items:center;gap:18px}
-.nav a{text-decoration:none;color:#476A82;font-size:13px;font-weight:700;padding:9px 0}
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1240px;margin:auto;min-height:74px;padding:0 26px;
+  display:flex;align-items:center;gap:24px;
+}
+.brand{
+  display:flex;align-items:center;gap:11px;text-decoration:none;
+  font-weight:900;color:var(--ink);font-size:21px;letter-spacing:-.5px;
+  margin-right:auto;white-space:nowrap;
+}
+.brand-icon{
+  width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#dff3ff,#bde6fb);color:var(--blue);
+  box-shadow:inset 0 0 0 1px #c7e9f9;
+}
+.brand small{display:block;font-size:8px;letter-spacing:1.15px;color:var(--muted);margin-top:2px}
+.nav{display:flex;align-items:center;gap:17px}
+.nav a{
+  text-decoration:none;color:#4c687d;font-size:13px;font-weight:750;
+  padding:9px 0;transition:.2s;
+}
 .nav a:hover,.nav a.active{color:var(--blue)}
-.header-cta{background:var(--blue);color:#fff!important;padding:10px 15px!important;border-radius:8px;
- box-shadow:0 8px 18px rgba(23,105,170,.18)}
-.menu{display:none;border:0;background:#EAF6FF;color:var(--navy);font-size:22px;border-radius:9px;padding:7px 10px}
-main{max-width:1160px;margin:0 auto;padding:54px 28px 70px}
-.page-hero{position:relative;overflow:hidden;border-radius:28px;padding:52px 52px 48px;
- background:radial-gradient(circle at 8% 0%,#A8E0FA 0,transparent 30%),
- linear-gradient(128deg,#176B9E 0%,#2B9BD3 65%,#62BCE8 100%);
- color:#fff;box-shadow:0 22px 50px rgba(18,80,120,.18)}
-.page-hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;
- right:-100px;bottom:-150px;background:rgba(255,255,255,.09)}
-.eyebrow{display:inline-block;padding:6px 11px;border:1px solid rgba(243,168,71,.55);
- border-radius:999px;color:#FFE0A5;background:rgba(255,255,255,.08);font-size:11px;font-weight:800;
- letter-spacing:1px;text-transform:uppercase}
-h1{font-size:clamp(34px,5vw,56px);line-height:1.03;letter-spacing:-1.8px;margin:14px 0 10px}
-.hero-sub{max-width:720px;color:#DDF4FF;font-size:18px;line-height:1.55;margin:0}
-.content{margin-top:28px;display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-.card{background:#fff;border:1px solid #D9EDF8;border-radius:20px;padding:26px;
- box-shadow:0 14px 35px rgba(18,59,86,.08)}
-.card:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(18,59,86,.11)}
-.card{transition:.2s ease}
-.card h2,.card h3{color:var(--navy);margin:0 0 10px}
-.card h3{font-size:20px}
-.card p,.card li{font-size:15px;line-height:1.7;color:#48687c}
-.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
- background:#EAF6FF;color:var(--blue);font-size:21px;margin-bottom:16px}
-.kicker{font-size:11px;font-weight:800;color:var(--gold-dark);letter-spacing:.8px;text-transform:uppercase}
-.price{font-size:32px;font-weight:900;color:var(--gold-dark);margin:8px 0 12px}
-.price span{font-size:13px;color:var(--muted);font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- padding:12px 17px;border-radius:9px;text-decoration:none;background:var(--blue);color:#fff;
- font-size:13px;font-weight:800;box-shadow:0 10px 20px rgba(23,105,170,.18)}
-.btn:hover{background:var(--gold);color:#123A55}
-.btn.alt{background:#fff;color:var(--navy);border:1px solid #BFE1F2;box-shadow:none}
-.grid-4 .card{grid-column:span 3}.grid-3 .card{grid-column:span 4}
-.grid-2 .card{grid-column:span 6}.wide{grid-column:span 8}.side{grid-column:span 4}
-.step{display:flex;gap:17px}.step-num{flex:0 0 42px;height:42px;border-radius:50%;
- display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:900}
-.plan-card{position:relative;overflow:hidden}.plan-card.featured{border:2px solid #F3C16A}
-.badge{position:absolute;right:18px;top:18px;background:#FFF1D7;color:#9A5D00;border-radius:999px;
- padding:5px 9px;font-size:10px;font-weight:800}
-.checks{list-style:none;padding:0;margin:15px 0 20px}.checks li{margin:8px 0}
-.checks li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:8px}
-.faq{border-bottom:1px solid #D9EDF8;padding:0 0 18px;margin-bottom:18px}
-.faq:last-child{border-bottom:0;margin-bottom:0}.faq h3{font-size:17px;margin-bottom:7px}
-.contact-box{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.quote{font-size:20px;line-height:1.5;color:var(--navy);font-weight:700}
-footer{background:#fff;border-top:1px solid var(--line);padding:26px 28px;text-align:center;color:var(--muted);font-size:13px}
+.nav .cta{
+  color:#fff!important;background:var(--blue);padding:10px 15px;border-radius:9px;
+  box-shadow:0 9px 20px rgba(18,102,168,.18);
+}
+.menu{
+  display:none;border:0;background:var(--sky);color:var(--ink);
+  font-size:22px;border-radius:10px;padding:7px 10px;cursor:pointer;
+}
+
+main{max-width:1160px;margin:0 auto;padding:42px 24px 72px}
+.hero{
+  position:relative;overflow:hidden;border-radius:30px;
+  padding:54px 54px 50px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 7% 0%,rgba(146,224,255,.72) 0,transparent 29%),
+    radial-gradient(circle at 95% 110%,rgba(255,255,255,.16) 0,transparent 31%),
+    linear-gradient(125deg,#075687 0%,#147bb8 54%,#2aa2dd 100%);
+  box-shadow:0 24px 60px rgba(15,83,125,.18);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border:1px solid rgba(255,255,255,.14);border-radius:50%;
+}
+.hero:before{width:310px;height:310px;right:-120px;top:-165px}
+.hero:after{width:190px;height:190px;right:65px;bottom:-125px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 12px;border-radius:999px;
+  color:#ffe1a6;background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,224,166,.45);
+  font-size:11px;font-weight:900;letter-spacing:1.1px;text-transform:uppercase;
+}
+.hero h1{
+  position:relative;z-index:1;
+  margin:16px 0 10px;
+  max-width:760px;
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.02;letter-spacing:-2px;
+}
+.hero p{
+  position:relative;z-index:1;
+  margin:0;max-width:760px;
+  color:#dff4ff;font-size:18px;line-height:1.6;
+}
+.hero-badges{
+  position:relative;z-index:1;
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:25px;
+}
+.hero-badges span{
+  padding:9px 12px;border-radius:10px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  font-size:12px;font-weight:750;color:#fff;
+}
+
+.layout{
+  margin-top:28px;
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;
+  align-items:start;
+}
+.faq-card,.side-card{
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  box-shadow:var(--shadow);
+}
+.faq-card{padding:12px 28px}
+.faq{
+  border-bottom:1px solid #e4eef4;
+  padding:23px 0 21px;
+}
+.faq:last-child{border-bottom:0}
+.faq-head{
+  display:flex;align-items:flex-start;gap:15px;
+}
+.num{
+  flex:0 0 34px;height:34px;border-radius:10px;
+  display:grid;place-items:center;
+  background:var(--sky);color:var(--blue);
+  font-size:12px;font-weight:900;
+}
+.faq h2{
+  margin:2px 0 8px;
+  color:var(--ink);font-size:18px;line-height:1.35;
+}
+.faq p,.faq li{
+  margin:0;color:#526d80;font-size:14.5px;line-height:1.72;
+}
+.faq ul{
+  margin:10px 0 0;padding-left:20px;
+}
+.faq li{margin:5px 0}
+.note{
+  margin-top:12px;padding:13px 15px;border-radius:12px;
+  background:#f8fbfd;border:1px solid #e3edf3;
+  color:#60798a;font-size:13px;line-height:1.6;
+}
+.warning{
+  margin-top:12px;padding:14px 16px;border-radius:13px;
+  background:var(--gold-soft);border:1px solid #f4d493;color:#765000;
+  font-size:13px;line-height:1.65;
+}
+.side-card{
+  position:sticky;top:96px;padding:24px;
+  background:linear-gradient(180deg,#fff,#f7fcff);
+}
+.side-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:grid;place-items:center;
+  background:var(--gold-soft);font-size:22px;
+}
+.side-card .kicker{
+  margin-top:17px;color:#9a6200;font-size:11px;font-weight:900;
+  letter-spacing:1px;text-transform:uppercase;
+}
+.side-card h3{margin:7px 0 8px;font-size:22px;color:var(--ink)}
+.side-card p{margin:0 0 17px;color:var(--muted);font-size:14px;line-height:1.65}
+.contact{
+  display:flex;flex-direction:column;gap:9px;
+}
+.contact a{
+  display:flex;align-items:center;gap:9px;
+  padding:11px 12px;border-radius:10px;
+  text-decoration:none;background:#eef8ff;color:var(--blue);
+  font-size:13px;font-weight:800;
+}
+.contact a:hover{background:#dff2ff}
+.whatsapp{
+  background:#eaf8ef!important;color:#168447!important;
+}
+footer{
+  border-top:1px solid var(--line);background:#fff;
+  padding:28px 24px;color:var(--muted);font-size:12px;text-align:center;
+}
 .footer-inner{max-width:1160px;margin:auto}
 @media(max-width:980px){
- .nav{display:none;position:absolute;left:18px;right:18px;top:70px;background:#fff;border:1px solid var(--line);
- border-radius:14px;padding:12px;box-shadow:0 18px 40px rgba(18,59,86,.14);flex-direction:column;align-items:stretch;gap:3px}
- .nav.open{display:flex}.nav a{padding:11px 12px}.menu{display:block}
- .header-inner{padding:0 18px}.grid-4 .card{grid-column:span 6}.grid-3 .card{grid-column:span 6}
- .wide,.side{grid-column:span 12}
+  .nav{
+    display:none;position:absolute;left:18px;right:18px;top:69px;
+    padding:10px;background:#fff;border:1px solid var(--line);
+    border-radius:15px;box-shadow:0 18px 42px rgba(16,64,95,.14);
+    flex-direction:column;align-items:stretch;gap:2px;
+  }
+  .nav.open{display:flex}
+  .nav a{padding:11px 12px}
+  .menu{display:block}
+  .header-inner{padding:0 18px}
+  .layout{grid-template-columns:1fr}
+  .side-card{position:static}
 }
 @media(max-width:650px){
- main{padding:28px 16px 50px}.page-hero{padding:34px 25px 32px;border-radius:22px}
- .hero-sub{font-size:15px}.content{gap:15px}.grid-4 .card,.grid-3 .card,.grid-2 .card{grid-column:span 12}
- .card{padding:21px}.contact-box{align-items:flex-start;flex-direction:column}.brand{font-size:21px}
+  main{padding:24px 15px 52px}
+  .hero{padding:36px 25px 32px;border-radius:23px}
+  .hero h1{font-size:39px;letter-spacing:-1.4px}
+  .hero p{font-size:15px}
+  .faq-card{padding:7px 20px}
+  .faq{padding:19px 0}
+  .faq h2{font-size:16.5px}
+  .faq p,.faq li{font-size:14px}
+  .brand{font-size:19px}
 }
-</style></head><body>
+</style>
+</head>
+<body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="index.html"><span class="brand-icon">⌂</span><span>PlanAghar<small>SMART HOUSE PLANS</small></span></a>
-    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+    <a class="brand" href="index.html" aria-label="EasyGharPlan AI home">
+      <span class="brand-icon">⌂</span>
+      <span>EasyGharPlan AI<small>SMART HOME PLANNING</small></span>
+    </a>
+    <button class="menu" aria-label="Open navigation" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
     <nav class="nav">
       <a href="index.html">Home</a>
-      <a href="about-us.html">About PlanAghar</a>
+      <a href="about-us.html">About Us</a>
       <a href="how-it-works.html">How It Works</a>
-      <a href="our-plans.html">Our House Plans</a>
+      <a href="our-plans.html">Our Plans</a>
       <a href="sample-plans.html">Sample Plans</a>
-      <a href="faq.html">FAQ</a>
-      <a class="header-cta" href="contact-us.html">Contact Us</a>
+      <a class="active" href="faq.html">FAQ</a>
+      <a class="cta" href="contact-us.html">Contact Us</a>
     </nav>
   </div>
 </header>
+
 <main>
-<section class="page-hero"><span class="eyebrow">Need to know</span><h1>Quick answers about PlanAghar services.</h1><p class="hero-sub">Everything starts with your plot details and basic room requirements.</p></section>
-<section class="content"><div class="card wide">
-<div class="faq"><h3>How do I start?</h3><p>Send us a WhatsApp message with your plot size and basic room requirements.</p></div>
-<div class="faq"><h3>How will I receive my plan?</h3><p>Your completed plan is shared digitally as a PDF.</p></div>
-<div class="faq"><h3>Can the plan be customised?</h3><p>Yes. Plans are prepared around your stated needs and plot details.</p></div>
-<div class="faq"><h3>How long does it take?</h3><p>Turnaround depends on the level of detail; we will confirm the timing with you.</p></div>
-</div>
-<div class="card side"><span class="kicker">Still have a question?</span><h3>Talk to PlanAghar</h3><p>Start a WhatsApp conversation and we will guide you through the planning process.</p><a class="btn" href="contact-us.html">Contact Us →</a></div></section>
-</main><footer><div class="footer-inner">PlanAghar &nbsp;|&nbsp; Smart house planning, made simple &nbsp;|&nbsp; WhatsApp: +91 77590 90361</div></footer>
+  <section class="hero">
+    <span class="eyebrow">Frequently Asked Questions</span>
+    <h1>Everything You Need to Know</h1>
+    <p>Clear answers about EasyGharPlan AI, our affordable conceptual house plans, required plot details, delivery, modifications and construction-related limitations.</p>
+    <div class="hero-badges">
+      <span>2D Concept Plans</span>
+      <span>3D Elevation</span>
+      <span>PDF Delivery</span>
+      <span>Affordable Planning</span>
+    </div>
+  </section>
+
+  <section class="layout">
+    <div class="faq-card">
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">01</span><div>
+          <h2>What is EasyGharPlan AI?</h2>
+          <p>EasyGharPlan AI is an AI-assisted home planning service that provides affordable 2D and 3D conceptual house plans based on your plot size and requirements.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">02</span><div>
+          <h2>What is included in the ₹299 Plan?</h2>
+          <p>The ₹299 package includes:</p>
+          <ul>
+            <li>Customized 2D Floor Plan</li>
+            <li>Room Layout &amp; Dimensions</li>
+            <li>Space Optimization</li>
+            <li>PDF Delivery</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">03</span><div>
+          <h2>What is included in the ₹599 Plan?</h2>
+          <p>The ₹499 package includes:</p>
+          <ul>
+            <li>Everything in the ₹299 Plan</li>
+            <li>3D Elevation</li>
+            <li>Better Visualization of Your Future Home</li>
+            <li>PDF Delivery</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">04</span><div>
+          <h2>What details do I need to provide?</h2>
+          <p>To prepare your plan, we require:</p>
+          <ul>
+            <li>Plot Size &amp; Dimensions</li>
+            <li>Plot Facing Direction</li>
+            <li>Number of Bedrooms</li>
+            <li>Number of Floors</li>
+            <li>Parking Requirement (Optional)</li>
+            <li>Special Requirements (Optional)</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">05</span><div>
+          <h2>How long does it take to receive my plan?</h2>
+          <p>Most plans are delivered within 24 to 48 hours after receiving complete information and payment confirmation.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">06</span><div>
+          <h2>Can I request changes to the plan?</h2>
+          <p>Yes. Minor modifications based on your original requirements can be requested after reviewing the initial concept plan.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">07</span><div>
+          <h2>Is the plan suitable for construction?</h2>
+          <p>The plans provided are conceptual plans intended for preliminary planning and visualization.</p>
+          <div class="warning">
+            Before construction, you must obtain detailed architectural drawings, structural design, municipal approvals, and any other approvals required by local authorities.
+          </div>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">09</span><div>
+          <h2>Can you design plans for any plot size?</h2>
+          <p>Yes. We can prepare concept plans for:</p>
+          <ul>
+            <li>Small residential plots</li>
+            <li>Medium-sized plots</li>
+            <li>Large residential plots</li>
+            <li>Corner plots</li>
+            <li>Irregular-shaped plots (subject to information provided)</li>
+          </ul>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">10</span><div>
+          <h2>Will I receive a CAD or AutoCAD file?</h2>
+          <p>No. The standard packages include PDF delivery only.</p>
+          <div class="note">If CAD files or additional services are offered in the future, they will be listed separately.</div>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">11</span><div>
+          <h2>Do you provide structural drawings?</h2>
+          <p>Yes. Structural drawings must be prepared by a qualified structural engineer.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">12</span><div>
+          <h2>Is the construction cost estimate included?</h2>
+          <p>At present, our primary service is home planning. Construction cost estimates may be provided as indicative guidance based on project requirements and location, but actual costs can vary depending on materials, specifications, labor rates, and market conditions.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">13</span><div>
+          <h2>Can I use the plan for municipal approval?</h2>
+          <p><strong>No.</strong> The plans provided by EasyGharPlan AI are not municipal approval drawings and should not be submitted directly for approvals.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">14</span><div>
+          <h2>What if my plot is located outside India?</h2>
+          <p>We can provide conceptual plans for plots located in many countries. However, local building regulations and approval requirements must always be verified by local licensed professionals.</p>
+        </div></div>
+      </article>
+
+      <article class="faq">
+        <div class="faq-head"><span class="num">15</span><div>
+          <h2>Why are your prices so affordable?</h2>
+          <p>Our goal is to make preliminary home planning accessible to everyone. By using AI-assisted workflows and practical engineering expertise, we can provide affordable concept plans without the high costs typically associated with detailed architectural services.</p>
+        </div></div>
+      </article>
+
+    </div>
+
+    <aside class="side-card">
+      <div class="side-icon">💬</div>
+      <div class="kicker">Still Have Questions?</div>
+      <h3>We're here to help.</h3>
+      <p>Reach out to EasyGharPlan AI for assistance with your home planning requirements.</p>
+      <div class="contact">
+        <a class="whatsapp" href="https://wa.me/917759090361" target="_blank" rel="noopener">🟢 WhatsApp Us</a>
+        <a href="https://easygharplanai.in" target="_blank" rel="noopener">🌐 EasyGharPlanAI.in</a>
+        <a href="mailto:support@easygharplanai.in">✉ support@easygharplanai.in</a>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">EasyGharPlan AI &nbsp;|&nbsp; Affordable conceptual home planning</div>
+</footer>
+
 <script>
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav').classList.remove('open')));
-</script></body></html>
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',()=>document.querySelector('.nav').classList.remove('open'));
+});
+</script>
+</body>
+</html>
