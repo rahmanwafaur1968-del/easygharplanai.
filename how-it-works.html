@@ -1,116 +1,637 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>How It Works | PlanAghar</title><style>
-:root{
-  --navy:#124E78;--blue:#1687C7;--blue2:#2B9BD3;--sky:#EAF6FF;
-  --gold:#F3A847;--gold-dark:#B56A00;--text:#183B56;--muted:#5F7D95;
-  --line:#CFE8F7;--soft:#F7FCFF;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);
- background:linear-gradient(135deg,#EAF6FF 0%,#fff 52%,#f5fbff 100%);min-height:100vh}
-a{color:inherit}
-.site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
- backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.header-inner{max-width:1240px;margin:auto;min-height:76px;padding:0 28px;
- display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);
- font-size:25px;font-weight:800;letter-spacing:-.8px;margin-right:auto;white-space:nowrap}
-.brand-icon{width:42px;height:42px;border-radius:12px;background:#E1F3FF;color:var(--blue);
- display:grid;place-items:center;font-size:23px;box-shadow:inset 0 0 0 1px #d3edf9}
-.brand small{display:block;font-size:9px;letter-spacing:.6px;color:var(--muted);margin-top:2px}
-.nav{display:flex;align-items:center;gap:18px}
-.nav a{text-decoration:none;color:#476A82;font-size:13px;font-weight:700;padding:9px 0}
-.nav a:hover,.nav a.active{color:var(--blue)}
-.header-cta{background:var(--blue);color:#fff!important;padding:10px 15px!important;border-radius:8px;
- box-shadow:0 8px 18px rgba(23,105,170,.18)}
-.menu{display:none;border:0;background:#EAF6FF;color:var(--navy);font-size:22px;border-radius:9px;padding:7px 10px}
-main{max-width:1160px;margin:0 auto;padding:54px 28px 70px}
-.page-hero{position:relative;overflow:hidden;border-radius:28px;padding:52px 52px 48px;
- background:radial-gradient(circle at 8% 0%,#A8E0FA 0,transparent 30%),
- linear-gradient(128deg,#176B9E 0%,#2B9BD3 65%,#62BCE8 100%);
- color:#fff;box-shadow:0 22px 50px rgba(18,80,120,.18)}
-.page-hero:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;
- right:-100px;bottom:-150px;background:rgba(255,255,255,.09)}
-.eyebrow{display:inline-block;padding:6px 11px;border:1px solid rgba(243,168,71,.55);
- border-radius:999px;color:#FFE0A5;background:rgba(255,255,255,.08);font-size:11px;font-weight:800;
- letter-spacing:1px;text-transform:uppercase}
-h1{font-size:clamp(34px,5vw,56px);line-height:1.03;letter-spacing:-1.8px;margin:14px 0 10px}
-.hero-sub{max-width:720px;color:#DDF4FF;font-size:18px;line-height:1.55;margin:0}
-.content{margin-top:28px;display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-.card{background:#fff;border:1px solid #D9EDF8;border-radius:20px;padding:26px;
- box-shadow:0 14px 35px rgba(18,59,86,.08)}
-.card:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(18,59,86,.11)}
-.card{transition:.2s ease}
-.card h2,.card h3{color:var(--navy);margin:0 0 10px}
-.card h3{font-size:20px}
-.card p,.card li{font-size:15px;line-height:1.7;color:#48687c}
-.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
- background:#EAF6FF;color:var(--blue);font-size:21px;margin-bottom:16px}
-.kicker{font-size:11px;font-weight:800;color:var(--gold-dark);letter-spacing:.8px;text-transform:uppercase}
-.price{font-size:32px;font-weight:900;color:var(--gold-dark);margin:8px 0 12px}
-.price span{font-size:13px;color:var(--muted);font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- padding:12px 17px;border-radius:9px;text-decoration:none;background:var(--blue);color:#fff;
- font-size:13px;font-weight:800;box-shadow:0 10px 20px rgba(23,105,170,.18)}
-.btn:hover{background:var(--gold);color:#123A55}
-.btn.alt{background:#fff;color:var(--navy);border:1px solid #BFE1F2;box-shadow:none}
-.grid-4 .card{grid-column:span 3}.grid-3 .card{grid-column:span 4}
-.grid-2 .card{grid-column:span 6}.wide{grid-column:span 8}.side{grid-column:span 4}
-.step{display:flex;gap:17px}.step-num{flex:0 0 42px;height:42px;border-radius:50%;
- display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:900}
-.plan-card{position:relative;overflow:hidden}.plan-card.featured{border:2px solid #F3C16A}
-.badge{position:absolute;right:18px;top:18px;background:#FFF1D7;color:#9A5D00;border-radius:999px;
- padding:5px 9px;font-size:10px;font-weight:800}
-.checks{list-style:none;padding:0;margin:15px 0 20px}.checks li{margin:8px 0}
-.checks li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:8px}
-.faq{border-bottom:1px solid #D9EDF8;padding:0 0 18px;margin-bottom:18px}
-.faq:last-child{border-bottom:0;margin-bottom:0}.faq h3{font-size:17px;margin-bottom:7px}
-.contact-box{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.quote{font-size:20px;line-height:1.5;color:var(--navy);font-weight:700}
-footer{background:#fff;border-top:1px solid var(--line);padding:26px 28px;text-align:center;color:var(--muted);font-size:13px}
-.footer-inner{max-width:1160px;margin:auto}
-@media(max-width:980px){
- .nav{display:none;position:absolute;left:18px;right:18px;top:70px;background:#fff;border:1px solid var(--line);
- border-radius:14px;padding:12px;box-shadow:0 18px 40px rgba(18,59,86,.14);flex-direction:column;align-items:stretch;gap:3px}
- .nav.open{display:flex}.nav a{padding:11px 12px}.menu{display:block}
- .header-inner{padding:0 18px}.grid-4 .card{grid-column:span 6}.grid-3 .card{grid-column:span 6}
- .wide,.side{grid-column:span 12}
-}
-@media(max-width:650px){
- main{padding:28px 16px 50px}.page-hero{padding:34px 25px 32px;border-radius:22px}
- .hero-sub{font-size:15px}.content{gap:15px}.grid-4 .card,.grid-3 .card,.grid-2 .card{grid-column:span 12}
- .card{padding:21px}.contact-box{align-items:flex-start;flex-direction:column}.brand{font-size:21px}
-}
-</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How EasyGharPlanAI works - get your customized home plan in four simple steps.">
+  <title>How It Works | EasyGharPlanAI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1687c7;
+      --primary-dark: #124e78;
+      --primary-light: #eaf6ff;
+      --gold: #f3a847;
+      --gold-dark: #9a5d00;
+      --text: #183b56;
+      --muted: #5f7d95;
+      --line: #cfe8f7;
+      --white: #ffffff;
+      --soft: #f7fcff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #eaf6ff 0%, #fff 52%, #f5fbff 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      min-height: 76px;
+      margin: auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      color: var(--primary-dark);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.8px;
+      margin-right: auto;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      box-shadow: inset 0 0 0 1px #d3edf9;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 8px;
+      letter-spacing: .7px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #476a82;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active { color: var(--primary); }
+
+    .header-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 10px 15px !important;
+      border-radius: 8px;
+      box-shadow: 0 8px 18px rgba(23,105,170,.18);
+    }
+
+    .menu {
+      display: none;
+      border: 0;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 22px;
+      border-radius: 9px;
+      padding: 7px 10px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 54px 28px 70px;
+    }
+
+    .page-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 52px 52px 48px;
+      background:
+        radial-gradient(circle at 8% 0%, #a8e0fa 0, transparent 30%),
+        linear-gradient(128deg, #176b9e 0%, #2b9bd3 65%, #62bce8 100%);
+      color: #fff;
+      box-shadow: 0 22px 50px rgba(18,80,120,.18);
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      right: -100px;
+      bottom: -150px;
+      background: rgba(255,255,255,.09);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 11px;
+      border: 1px solid rgba(243,168,71,.55);
+      border-radius: 999px;
+      color: #ffe0a5;
+      background: rgba(255,255,255,.08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.03;
+      letter-spacing: -1.8px;
+      margin: 14px 0 10px;
+    }
+
+    .hero-sub {
+      max-width: 720px;
+      color: #ddf4ff;
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .content {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #d9edf8;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 14px 35px rgba(18,59,86,.08);
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 42px rgba(18,59,86,.11);
+    }
+
+    .card h2,
+    .card h3 {
+      color: var(--primary-dark);
+      margin: 0 0 10px;
+    }
+
+    .card h3 { font-size: 20px; }
+
+    .card p,
+    .card li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #48687c;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 21px;
+      margin-bottom: 16px;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-dark);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .step {
+      display: flex;
+      gap: 17px;
+    }
+
+    .step-num {
+      flex: 0 0 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .checks {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0 20px;
+    }
+
+    .checks li { margin: 8px 0; }
+
+    .checks li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .plan-card.featured { border: 2px solid #f3c16a; }
+
+    .badge {
+      display: inline-block;
+      background: #fff1d7;
+      color: #9a5d00;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--gold-dark);
+      margin: 8px 0 12px;
+    }
+
+    .price span {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 12px 17px;
+      border-radius: 9px;
+      text-decoration: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 10px 20px rgba(23,105,170,.18);
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: #123a55;
+    }
+
+    .wide { grid-column: span 8; }
+    .side { grid-column: span 4; }
+    .grid-2 .card { grid-column: span 6; }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .quote {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .notice {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 26px 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--primary); }
+
+    @media (max-width: 980px) {
+      .nav {
+        display: none;
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 70px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 18px 40px rgba(18,59,86,.14);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+      }
+
+      .nav.open { display: flex; }
+
+      .nav a { padding: 11px 12px; }
+
+      .menu { display: block; }
+
+      .header-inner { padding: 0 18px; }
+
+      .wide,
+      .side { grid-column: span 12; }
+    }
+
+    @media (max-width: 650px) {
+      main { padding: 28px 16px 50px; }
+
+      .page-hero {
+        padding: 34px 25px 32px;
+        border-radius: 22px;
+      }
+
+      .hero-sub { font-size: 15px; }
+
+      .content { gap: 15px; }
+
+      .grid-2 .card { grid-column: span 12; }
+
+      .card { padding: 21px; }
+
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand { font-size: 20px; }
+    }
+  </style>
+</head>
+
+<body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="index.html"><span class="brand-icon">⌂</span><span>PlanAghar<small>SMART HOUSE PLANS</small></span></a>
-    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
-    <nav class="nav">
+
+    <a class="brand" href="index.html" aria-label="EasyGharPlanAI Home">
+      <span class="brand-icon">⌂</span>
+      <span>
+        EasyGharPlanAI.in
+        <small>SMART HOME PLANNING</small>
+      </span>
+    </a>
+
+    <button class="menu" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <nav class="nav" id="mainNav">
       <a href="index.html">Home</a>
-      <a href="about-us.html">About PlanAghar</a>
-      <a href="how-it-works.html">How It Works</a>
-      <a href="our-plans.html">Our House Plans</a>
+      <a href="about.html">About Us</a>
+      <a href="plans.html">Our Plans</a>
+      <a href="how-it-works.html" class="active">How It Works</a>
       <a href="sample-plans.html">Sample Plans</a>
       <a href="faq.html">FAQ</a>
-      <a class="header-cta" href="contact-us.html">Contact Us</a>
+      <a class="header-cta" href="contact.html">Contact Us</a>
     </nav>
+
   </div>
 </header>
+
 <main>
-<section class="page-hero"><span class="eyebrow">Simple process</span><h1>Four simple steps from idea to plan.</h1><p class="hero-sub">Share your requirements, review the organised layout, and receive your plan digitally.</p></section>
-<section class="content grid-2">
-<div class="card step"><div class="step-num">1</div><div><h3>Share your details</h3><p>Tell us your plot size, required rooms, and preferred style.</p></div></div>
-<div class="card step"><div class="step-num">2</div><div><h3>We prepare your plan</h3><p>Our planning process creates an organised layout around your requirements.</p></div></div>
-<div class="card step"><div class="step-num">3</div><div><h3>Expert review</h3><p>The draft is checked for practical usability before delivery.</p></div></div>
-<div class="card step"><div class="step-num">4</div><div><h3>Receive your plan</h3><p>Your final plan is delivered digitally for easy review and sharing.</p></div></div>
-</section>
-<section class="content"><div class="card wide"><span class="kicker">What to keep ready</span><ul class="checks"><li>Plot dimensions</li><li>Required rooms</li><li>Preferred plan type</li><li>Any design references</li></ul></div>
-<div class="card side"><h3>Let's get started</h3><p>Send your details through WhatsApp and we will guide you through the planning process.</p><a class="btn" href="contact-us.html">Contact PlanAghar →</a></div></section>
-</main><footer><div class="footer-inner">PlanAghar &nbsp;|&nbsp; Smart house planning, made simple &nbsp;|&nbsp; WhatsApp: +91 77590 90361</div></footer>
+
+  <section class="page-hero">
+    <span class="eyebrow">Simple Process</span>
+    <h1>Get Your Home Plan in 4 Simple Steps</h1>
+    <p class="hero-sub">
+      Planning your dream home has never been easier. Simply share your requirements,
+      and we'll create a customized concept plan tailored to your plot and lifestyle.
+    </p>
+  </section>
+
+  <section class="content grid-2">
+
+    <div class="card step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="icon">📋</div>
+        <h3>Share Your Requirements</h3>
+        <p>Tell us about your plot and home requirements.</p>
+
+        <span class="kicker">Information Required</span>
+        <ul class="checks">
+          <li>Plot Size &amp; Dimensions</li>
+          <li>Plot Facing Direction</li>
+          <li>Number of Bedrooms</li>
+          <li>Number of Floors</li>
+          <li>Parking Requirements (Optional)</li>
+          <li>Any Special Requirements</li>
+        </ul>
+
+        <p>
+          You can submit the details through our website,
+          <strong>support@easygharplanai.in</strong>, or WhatsApp at
+          <strong>7759090361</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div class="card step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="icon">💰</div>
+        <h3>Choose Your Plan</h3>
+        <p>Select the package that best suits your needs.</p>
+
+        <div class="card plan-card">
+          <span class="badge">2D PLAN</span>
+          <h3>₹299 – 2D House Plan</h3>
+          <p>
+            Receive a customized 2D floor layout with room dimensions
+            and space planning.
+          </p>
+        </div>
+
+        <div class="card plan-card featured" style="margin-top:14px;">
+          <span class="badge">2D + 3D PLAN</span>
+          <h3>₹599 – 2D + 3D House Plan</h3>
+          <p>
+            Receive a customized 2D floor plan plus a 3D for better visualization.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="icon">🤖</div>
+        <h3>AI-Assisted Planning &amp; Engineering Review</h3>
+        <p>
+          Our AI-powered planning system analyses your requirements and
+          generates the most suitable layout options.
+        </p>
+        <p>
+          Each plan is reviewed using practical engineering principles based
+          on over 30 years of construction experience in India and the UAE
+          to ensure efficient space utilization and buildability.
+        </p>
+      </div>
+    </div>
+
+    <div class="card step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="icon">📄</div>
+        <h3>Receive Your Plan</h3>
+        <p>Your plan is delivered digitally in PDF format.</p>
+
+        <span class="kicker">Typical Delivery Time</span>
+        <p class="quote">⏱ Within 24 to 48 Hours*</p>
+        <p class="notice">Fast, simple, and affordable.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="content">
+
+    <div class="card wide">
+      <span class="kicker">What You Receive</span>
+
+      <h2>For ₹299 Package</h2>
+      <ul class="checks">
+        <li>Customized 2D Floor Plan</li>
+        <li>Room Layout &amp; Dimensions</li>
+        <li>Space Planning</li>
+      </ul>
+
+      <h2 style="margin-top:24px;">For ₹599 Package</h2>
+      <ul class="checks">
+        <li>Customized 2D Floor Plan</li>
+        <li>3D View</li>
+        <li>Modern Design Concept</li>
+        <li>Enhanced Visualization</li>
+      </ul>
+    </div>
+
+    <div class="card side">
+      <span class="kicker">Why Choose Us?</span>
+      <h2>Why Choose EasyGharPlan AI?</h2>
+      <ul class="checks">
+        <li>Affordable Pricing</li>
+        <li>AI-Powered Planning</li>
+        <li>Customized Layouts</li>
+        <li>Practical Engineering Approach</li>
+        <li>Fast Turnaround</li>
+        <li>Easy Online Process</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="content">
+
+    <div class="card">
+      <div class="contact-box">
+        <div>
+          <span class="kicker">Ready to Begin?</span>
+          <div class="quote">Share your requirements and start planning your dream home.</div>
+        </div>
+        <a class="btn" href="contact.html">Contact Us →</a>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="plans.html">Our Plans</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="sample-plans.html">Sample Plans</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    EasyGharPlanAI.in &nbsp; | &nbsp; Smart home planning, made simple
+    <br>
+    WhatsApp: 7759090361
+
+  </div>
+</footer>
+
 <script>
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav').classList.remove('open')));
-</script></body></html>
+  const menuButton = document.getElementById("menuButton");
+  const mainNav = document.getElementById("mainNav");
+
+  menuButton.addEventListener("click", function () {
+    const isOpen = mainNav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", isOpen);
+  });
+
+  document.querySelectorAll(".nav a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mainNav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
+
+</body>
+</html>
