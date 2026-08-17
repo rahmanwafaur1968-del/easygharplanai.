@@ -3,97 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sample Plan | EasyGharPlanAI</title>
+<title>Sample Plans | EasyGharPlanAI</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#124E78;--blue:#1687C7;--sky:#EAF6FF;--gold:#F3A847;--text:#183B56;--muted:#5F7D95;--line:#CFE8F7}
-*{box-sizing:border-box}body{margin:0;font-family:Poppins,Arial,sans-serif;color:var(--text);background:linear-gradient(135deg,#EAF6FF,#fff 55%,#f5fbff)}
-header{position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid var(--line)}
-.header{max-width:1200px;margin:auto;min-height:74px;padding:0 25px;display:flex;align-items:center}
-.logo{font-size:24px;font-weight:800;color:var(--navy);text-decoration:none;margin-right:auto}.logo span{color:var(--blue)}
-nav{display:flex;gap:20px;align-items:center}nav a{color:#476A82;text-decoration:none;font-size:13px;font-weight:700}nav a:hover,nav a.active{color:var(--blue)}
-.menu{display:none;border:0;background:var(--sky);font-size:22px;padding:7px 10px;border-radius:8px}
-main{max-width:1150px;margin:auto;padding:45px 25px 70px}
-.hero{padding:50px;border-radius:26px;color:#fff;background:linear-gradient(128deg,#176B9E,#2B9BD3 65%,#62BCE8);box-shadow:0 20px 45px #124e7830}
-.eyebrow{color:#FFE0A5;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
-h1{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:14px 0}.hero p{max-width:760px;color:#DDF4FF;font-size:17px;line-height:1.6}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:25px}
-.card{background:#fff;border:1px solid #D9EDF8;border-radius:18px;padding:25px;box-shadow:0 12px 30px #123b5612}
-.card h2,.card h3{color:var(--navy)}.card p,.card li{color:#48687c;line-height:1.7;font-size:14px}
-.icon{width:45px;height:45px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:15px}
-ul{list-style:none;padding:0}li{margin:7px 0}li:before{content:"✓";color:var(--blue);font-weight:800;margin-right:8px}
-.wide{margin-top:25px}.elevation{height:145px;border:1px dashed #b8ddef;border-radius:12px;background:linear-gradient(135deg,#eaf6ff,#fff);display:grid;place-items:center;color:var(--muted);font-weight:700}
-.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:11px 17px;border-radius:8px;font-weight:700;font-size:13px}
-footer{text-align:center;background:#fff;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:13px}
-footer a{text-decoration:none;margin:0 5px}
-@media(max-width:900px){nav{display:none;position:absolute;top:70px;left:15px;right:15px;background:#fff;padding:15px;border:1px solid var(--line);border-radius:12px;flex-direction:column;align-items:stretch}.menu{display:block}nav.open{display:flex}.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){main{padding:25px 15px 50px}.hero{padding:32px 24px}.grid{grid-template-columns:1fr}.header{padding:0 15px}}
+:root{--navy:#124e78;--blue:#1687c7;--sky:#eaf6ff;--gold:#f3a847;--text:#183b56;--muted:#5f7d95;--line:#cfe8f7}
+*{box-sizing:border-box}body{margin:0;font-family:Poppins,Arial,sans-serif;color:var(--text);background:linear-gradient(135deg,#eaf6ff,#fff 55%,#f5fbff)}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.header{max-width:1200px;margin:auto;min-height:74px;padding:0 25px;display:flex;align-items:center}.logo{font-size:24px;font-weight:800;color:var(--navy);text-decoration:none;margin-right:auto}.logo span{color:var(--blue)}
+nav{display:flex;gap:20px;align-items:center}nav a{color:#476a82;text-decoration:none;font-size:13px;font-weight:700}nav a:hover,nav a.active{color:var(--blue)}.menu{display:none;border:0;background:var(--sky);font-size:22px;padding:7px 10px;border-radius:8px}
+main{max-width:1150px;margin:auto;padding:45px 25px 70px}.hero{padding:50px;border-radius:26px;color:#fff;background:linear-gradient(128deg,#176b9e,#2b9bd3 65%,#62bce8);box-shadow:0 20px 45px #124e7830}.eyebrow{color:#ffe0a5;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:14px 0}.hero p{max-width:780px;color:#ddf4ff;font-size:17px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:25px}.card{background:#fff;border:1px solid #d9edf8;border-radius:18px;padding:25px;box-shadow:0 12px 30px #123b5612}.card h2,.card h3{color:var(--navy)}.card p,.card li{color:#48687c;line-height:1.7;font-size:14px}.icon{width:45px;height:45px;border-radius:12px;background:var(--sky);color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:15px}.kicker{font-size:11px;color:#9a5d00;font-weight:800;letter-spacing:.8px;text-transform:uppercase}ul{list-style:none;padding:0}li{margin:7px 0}li:before{content:"✓";color:var(--blue);font-weight:800;margin-right:8px}.wide{margin-top:25px}.elevation{height:145px;border:1px dashed #b8ddef;border-radius:12px;background:linear-gradient(135deg,#eaf6ff,#fff);display:grid;place-items:center;color:var(--muted);font-weight:700;text-align:center;padding:15px}.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:11px 17px;border-radius:8px;font-weight:700;font-size:13px}footer{text-align:center;background:#fff;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:13px}footer a{text-decoration:none;margin:0 5px}
+@media(max-width:900px){nav{display:none;position:absolute;top:70px;left:15px;right:15px;background:#fff;padding:15px;border:1px solid var(--line);border-radius:12px;flex-direction:column;align-items:stretch}.menu{display:block}nav.open{display:flex}.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){main{padding:25px 15px 50px}.hero{padding:32px 24px}.grid{grid-template-columns:1fr}.header{padding:0 15px}}
 </style>
 </head>
 <body>
-<header><div class="header">
-<a class="logo" href="index.html">Easy<span>GharPlan</span>AI.in</a>
-<button class="menu" id="menu">☰</button>
-<nav id="nav">
-<a href="index.html">Home</a><a href="about.html">About Us</a><a href="plans.html">Our Plans</a>
-<a href="how-it-works.html">How It Works</a><a class="active" href="sample-plans.html">Sample Plans</a>
-<a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a>
-</nav></div></header>
-
+<header><div class="header"><a class="logo" href="index.html">Easy<span>GharPlan</span>AI.in</a><button class="menu" id="menu">☰</button><nav id="nav"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="plans.html">Our Plans</a><a href="how-it-works.html">How It Works</a><a class="active" href="sample-plans.html">Sample Plans</a><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a></nav></div></header>
 <main>
-<section class="hero">
-<span class="eyebrow">Sample Plan</span>
-<h1>Explore Our Sample Home Plans</h1>
-<p>Every plot is unique, and every family has different requirements. The sample plans below are provided to help you understand the quality, layout, and planning approach used by EasyGharPlan AI.</p>
-</section>
-
-<section class="wide card">
-<h2>Sample Home Plans</h2>
-<p>Whether you own a small urban plot or a larger residential property, our goal is to create practical, comfortable, and space-efficient home layouts.</p>
-</section>
-
+<section class="hero"><span class="eyebrow">Sample Plans</span><h1>Explore Our Sample Home Plans</h1><p>Every plot is unique, and every family has different requirements. The sample plans below are provided to help you understand the quality, layout, and planning approach used by EasyGharPlan AI.</p><p>Whether you own a small urban plot or a larger residential property, our goal is to create practical, comfortable, and space-efficient home layouts.</p></section>
 <section class="grid">
-<article class="card"><div class="icon">01</div><h3>Sample Plan 1</h3><p><strong>30 ft × 40 ft Plot (1000 Sq. Ft.)</strong><br>2 BHK Ground Floor Layout</p><ul>
-<li>Living Room</li><li>Dining Area</li><li>Kitchen</li><li>2 Bedrooms</li><li>2 Bathrooms</li><li>Staircase Provision</li><li>Car Parking</li></ul><p>Ideal for small families seeking maximum space utilization.</p></article>
-
-<article class="card"><div class="icon">02</div><h3>Sample Plan 2</h3><p><strong>30 ft × 50 ft Plot (1500 Sq. Ft.)</strong><br>3 BHK Modern Home</p><ul>
-<li>Spacious Living Area</li><li>Dining Room</li><li>Modular Kitchen</li><li>3 Bedrooms</li><li>3 Bathrooms</li><li>Balcony</li><li>Car Parking</li></ul><p>Designed for comfort, functionality, and future expansion.</p></article>
-
-<article class="card"><div class="icon">03</div><h3>Sample Plan 3</h3><p><strong>40 ft × 60 ft Plot (2400 Sq. Ft.)</strong><br>Duplex Home Design</p><ul>
-<li>Double-Height Living Area</li><li>4 Bedrooms</li><li>Family Lounge</li><li>Modern Kitchen</li><li>Balconies</li><li>Parking Space</li><li>Terrace Access</li></ul><p>Suitable for larger families seeking a contemporary lifestyle.</p></article>
+<article class="card"><div class="icon">01</div><span class="kicker">Sample Plan 1</span><h2>30 ft × 40 ft Plot</h2><h3>1200 Sq. Ft. · 2 BHK Ground Floor Layout</h3><h3>Features</h3><ul><li>Living Room</li><li>Dining Area</li><li>Kitchen</li><li>2 Bedrooms</li><li>2 Bathrooms</li><li>Staircase Provision</li><li>Car Parking</li></ul><p>Ideal for small families seeking maximum space utilization.</p></article>
+<article class="card"><div class="icon">02</div><span class="kicker">Sample Plan 2</span><h2>30 ft × 50 ft Plot</h2><h3>1500 Sq. Ft. · 3 BHK Modern Home</h3><h3>Features</h3><ul><li>Spacious Living Area</li><li>Dining Room</li><li>Modular Kitchen</li><li>3 Bedrooms</li><li>3 Bathrooms</li><li>Balcony</li><li>Car Parking</li></ul><p>Designed for comfort, functionality, and future expansion.</p></article>
+<article class="card"><div class="icon">03</div><span class="kicker">Sample Plan 3</span><h2>40 ft × 60 ft Plot</h2><h3>2400 Sq. Ft. · Duplex Home Design</h3><h3>Features</h3><ul><li>Double-Height Living Area</li><li>4 Bedrooms</li><li>Family Lounge</li><li>Modern Kitchen</li><li>Balconies</li><li>Parking Space</li><li>Terrace Access</li></ul><p>Suitable for larger families seeking a contemporary lifestyle.</p></article>
 </section>
-
-<section class="wide card">
-<h2>Sample 3D Elevations</h2>
-<p>Our ₹599 package includes a 3D to help you visualize the interior / exterior appearance of your future home before construction begins.</p>
-</section>
-
+<section class="wide card"><span class="kicker">Sample 3D Elevations</span><h2>Visualize Your Future Home</h2><p>Our ₹599 package includes a 3D to help you visualize the interior / exterior appearance of your future home before construction begins.</p><h3>Sample Elevation Styles</h3></section>
+<section class="grid"><div class="card"><div class="elevation">Modern Contemporary</div></div><div class="card"><div class="elevation">Minimalist Design</div></div><div class="card"><div class="elevation">Traditional Indian Style</div></div></section>
 <section class="grid">
-<div class="card"><div class="elevation">Modern Contemporary</div></div>
-<div class="card"><div class="elevation">Minimalist Design</div></div>
-<div class="card"><div class="elevation">Traditional Indian Style</div></div>
+<div class="card"><span class="kicker">Smart Space Planning</span><h2>Smart Space Planning</h2><p>Every square foot is carefully utilized to maximize comfort and functionality.</p></div>
+<div class="card"><span class="kicker">AI-Assisted Design</span><h2>AI-Assisted Design</h2><p>Modern technology helps generate efficient layouts based on your requirements.</p></div>
+<div class="card"><span class="kicker">Practical Engineering Approach</span><h2>Practical Engineering Approach</h2><p>Backed by over 30 years of engineering and construction experience in India and the UAE.</p></div>
 </section>
-
-<section class="grid">
-<div class="card" style="grid-column:span 2"><h2>What Makes Our Plans Different?</h2>
-<h3>Smart Space Planning</h3><p>Every square foot is carefully utilized to maximize comfort and functionality.</p>
-<h3>AI-Assisted Design</h3><p>Modern technology helps generate efficient layouts based on your requirements.</p>
-<h3>Practical Engineering Approach</h3><p>Backed by over 30 years of engineering and construction experience in India and the UAE.</p></div>
-<div class="card"><h2>Affordable Pricing</h2><p>Get started from just ₹299 instead of paying thousands for preliminary planning.</p><a class="btn" href="plans.html">View Our Plans →</a></div>
-</section>
+<section class="wide card"><span class="kicker">Affordable Pricing</span><h2>Get Started from Just ₹299</h2><p>Get started from just ₹299 instead of paying thousands for preliminary planning.</p><a class="btn" href="plans.html">View Our Plans →</a></section>
 </main>
-
-<footer>
-<a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="plans.html">Our Plans</a> |
-<a href="how-it-works.html">How It Works</a> | <a href="sample-plans.html">Sample Plans</a> |
-<a href="faq.html">FAQ</a> | <a href="contact.html">Contact Us</a><br><br>
-EasyGharPlanAI.in | Smart home planning, made simple
-</footer>
-
-<script>
-const menu=document.getElementById("menu"),nav=document.getElementById("nav");
-menu.onclick=()=>nav.classList.toggle("open");
-document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
-</script>
-</body>
-</html>
+<footer><a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="plans.html">Our Plans</a> | <a href="how-it-works.html">How It Works</a> | <a href="sample-plans.html">Sample Plans</a> | <a href="faq.html">FAQ</a> | <a href="contact.html">Contact Us</a><br><br>EasyGharPlanAI.in | Smart home planning, made simple</footer>
+<script>const m=document.getElementById('menu'),n=document.getElementById('nav');m.onclick=()=>n.classList.toggle('open');document.querySelectorAll('#nav a').forEach(a=>a.onclick=()=>n.classList.remove('open'));</script>
+</body></html>
